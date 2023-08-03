@@ -1,118 +1,51 @@
 import Image from 'next/image'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/pages/index.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+      <main>
+        <header>
+          <h1>Introducing 😍 [Your Blog Name]: The Ultimate Blogging Platform for Success! 🚀</h1>
+          <p>Are you a passionate blogger seeking to take your blogging journey to new heights? Look no further! Welcome to [Your Blog Name], a customizable and feature-rich blogging platform designed to empower bloggers like you. With a user-friendly interface, SEO standards, and a plethora of powerful tools, [Your Blog Name] is the ultimate solution to all your blogging needs. 🌟</p>
+          <p>How [Your Blog Name] Can Transform Your Blogging Experience:</p>
+          <ul>
+              <li>Tailored Blogging Experience: At [Your Blog Name], we understand that every blogger is unique, and so should be their blogging platform. Our fully customizable blog allows you to create a blog that aligns perfectly with your personality and niche. From selecting your blog's layout to choosing the color schemes and fonts, the possibilities are limitless! 🎨</li>
+              <li>Seamless Content Organization: Never lose track of your articles again! With [Your Blog Name]'s intuitive categories and articles section, you can effortlessly organize and manage your content. Your readers will thank you for the easy navigation and smooth user experience. 📚</li>
+              <li>Engage with Your Audience: Encourage meaningful interactions with your readers through our built-in comment features. Connect with your audience, answer their queries, and build a strong community around your blog. 💬</li>
+              <li>Newsletter Subscription: Boost your readership with our newsletter subscription feature. Allow your readers to register for your newsletter, ensuring they never miss any of your latest updates and valuable content. 💌</li>
+              <li>Stunning UI and Responsiveness: Impress your readers with a visually appealing and responsive blog. Our carefully designed user interface ensures that your blog looks stunning on all devices, enhancing user experience and reader retention. 🌈</li>
+              <li>Enhanced SEO Performance: Achieve higher search engine rankings with [Your Blog Name]'s SEO standards. Your blog will be optimized for better visibility, attracting a wider audience and increasing organic traffic. 📈</li>
+              <li>Powerful Analytics and Insights: Empower yourself with data-driven decisions using our comprehensive analytics section. Monitor the number of views, likes, and comments in a graphical layout, gaining valuable insights into your blog's performance. 📊</li>
+              <li>Seamless Integration with Google Tools: Boost your blog's online presence with Google Analytics and Google AdSense integration. Analyze user behavior, track your blog's performance, and even monetize your content with ease. 💼</li>
+              <li>Speed and Efficiency: Experience lightning-fast loading times and performance, thanks to our Next.js SSR technology. Your blog will impress readers with its speed and responsiveness. ⚡</li>
+              <li>Effortless Blog Management: Take full control of your blog with our admin features. Easily add, edit, or delete articles, categories, subscribers, staff, and users, making blog management a breeze. 🛠️</li>
+              <li>Enhanced Email Support: Build a strong connection with your readers through our email support features. Send welcome emails, notifications for new articles, and personalized messages to your subscribers. Keep your audience engaged and informed about the latest updates. 📧</li>
+              <li>Customize Your Brand: Personalize your blog's logo, name, privacy policy, "About Us" section, and social media links using our easy-to-use settings. Showcase your brand's identity and establish a unique online presence. 🎯</li>
+          </ul>
+          <p>Your Blog, Your Success Story! [Your Blog Name] is not just a blogging platform; it's a catalyst for your blogging success. From helping you connect with your readers to providing you with the tools for growth, we are dedicated to your journey as a successful blogger. 🚀</p>
+          <p>Unleash Your Blog's Potential Today! With [Your Blog Name], you can launch your dream blog in just 5 days! Our dedicated team ensures a smooth and efficient setup, and our customizable features allow you to grow and evolve your blog effortlessly. 🌟</p>
+          <p>Join the Blogging Revolution! Be a part of the blogging revolution with [Your Blog Name]. Unlock the true potential of your blogging passion and captivate the world with your unique voice. 😍</p>
+          <button>Get Started Now</button>
+      </header>
+      
+      <section>
+          <h2>Admin Features:</h2>
+          <ul>
+              <li>Article Management: The admin dashboard empowers you to oversee and manage all the articles published on your blog. Easily view, edit, or delete articles as per your requirements. Stay in control of your blog's content and ensure that only high-quality and relevant articles are published. 📝</li>
+              <li>Category Management: Keep your blog well-organized with the category management feature. Add, edit, or remove categories to ensure that your readers can easily find the content they are interested in. A structured and well-categorized blog enhances user experience and engagement. 🗂️</li>
+              <li>Comment Management: Engage with your readers effectively by managing comments through the admin panel. View and moderate comments to ensure a healthy and respectful discussion on your blog. Respond promptly to feedback and foster a sense of community among your readers. 💬</li>
+              <li>Subscriber Management: The admin dashboard allows you to oversee your blog's subscriber list. Keep track of new subscribers, manage existing ones, and maintain a database of engaged users. Utilize this feature to build a loyal readership and communicate with your subscribers effectively. 📈</li>
+              <li>Staff Management: If you have a team of contributors or editors, the admin dashboard facilitates staff management. Add, edit, or remove staff members with different roles and permissions. Ensure seamless collaboration among team members to enhance productivity. 👥</li>
+              <li>User Management: Administer the user base of your blog effortlessly. Monitor user accounts, roles, and activities on the platform. Tailor user permissions and ensure that your blog's community is well-managed and secure. 🔒</li>
+              <li>Analytics and Insights: Empower yourself with valuable data through the analytics section. Access key performance metrics such as the number of views, likes, articles, categories, subscribers, staff, and users. Use graphical representations to gain insights into your blog's growth and audience engagement. 📊</li>
+              <li>Email Support Features: Strengthen your bond with subscribers through personalized email support. Send welcome emails to new subscribers, notify them about new articles, and deliver important messages. Keep your audience engaged and informed about the latest updates. 💌</li>
+              <li>Site Settings Management: Customize and personalize your blog's appearance and information with ease. Use the settings section to edit your site's logo, name, privacy policy, "About Us" section, and social media links. Reflect your brand's identity and values to leave a lasting impression on your readers. ⚙️</li>
+          </ul>
+          <p>With these powerful admin features, you can effectively manage your blog, interact with your audience, and optimize your blog's performance. Take control of your blogging journey and make the most out of [Your Blog Name] - the ultimate platform for your success. 🚀</p>
+      </section>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      <footer>
+          <p>© 2023 [Your Blog Name]. All rights reserved.</p>
+      </footer>
     </main>
   )
 }

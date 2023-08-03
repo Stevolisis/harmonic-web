@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    font-family: ArchivoRegular;
+}
+
+@layer components {
+    .btnShadow{
+        box-shadow: 0px 4px 16px rgba(17, 17, 26, 0.1), 0px 8px 24px rgba(17, 17, 26, 0.1), 0px 16px 56px rgba(17, 17, 26, 0.1);
+    }
+    
+    .imgShadow{
+        box-shadow: rgba(7, 65, 210, 0.1) 0px 9px 30px;
+        background-color: #d5f5b1;
+      }
+      
+    
+    @font-face {
+        font-family: "ArchivoItalic";
+        src: url("/font/archivo/ArchivoItalic.ttf");
+    }
+    
+    @font-face {
+        font-family: "ArchivoExtraBold";
+        src: url("/font/archivo/ArchivoExtraBold.ttf");
+    }
+      
+    @font-face {
+        font-family: "ArchivoBold";
+        src: url("/font/archivo/ArchivoBold.ttf");
+    }
+    
+    @font-face {
+        font-family: "ArchivoSemiBold";
+        src: url("/font/archivo/ArchivoSemiBold.ttf");
+    }
+    
+    @font-face {
+        font-family: "ArchivoMedium";
+        src: url("/font/archivo/ArchivoMedium.ttf");
+    }
+    
+    @font-face {
+        font-family: "ArchivoRegular";
+        src: url("/font/archivo/ArchivoRegular.ttf");
+    }
+    @font-face {
+        font-family: "ArchivoLight";
+        src: url("/font/archivo/ArchivoLight.ttf");
+    }
+    @font-face {
+        font-family: "ArchivoExtraLight";
+        src: url("/font/archivo/ArchivoExtraLight.ttf");
+    }
+}
