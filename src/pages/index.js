@@ -30,7 +30,7 @@ export default function Home() {
     <main className='py-10 md:py-10 px-5 md:px-32 bg-communitywave bg-bgLight'>
         <header>
           <h1 className='text-3xl md:text-4xl font-ArchivoExtraBold'>Unlock New Opportunities:
-Launch Your E-commerce Business Now! 😍 HarmonicWeb: The Ultimate Blogging Platform🚀</h1>
+Launch Your Bloggig Site Now! 😍 HarmonicWeb: The Ultimate Blogging Platform🚀</h1>
           <p className='py-3 text-sm md:text-base'>Are you a passionate blogger seeking to take your blogging journey to new heights? Look no further! Welcome to HarmonicWeb, a customizable and feature-rich blogging platform designed to empower bloggers like you. With a user-friendly interface, SEO standards, and a plethora of powerful tools, HarmonicWeb is the ultimate solution to all your blogging needs. 🌟</p>
           
           
