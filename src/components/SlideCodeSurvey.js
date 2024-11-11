@@ -8,6 +8,7 @@ const SlideCodeSurvey = () => {
         description: "Hi! We’re developing a tool called HarmonicSlide.HarmonicSlide is a tool to help developers effortlessly create and share professional, visually engaging content on LinkedIn and other platforms. With ready-made templates, content suggestions based on your recent code updates, and easy customization, HarmonicSlide saves you time and enhances your ability to showcase your work."
     };
 
+
   return (
     <div>
         <header className=' text-center'>
