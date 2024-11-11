@@ -15,7 +15,7 @@ export const BasicInformation = {
             },
             {
                 name:"role",
-                type: "radioBtn",
+                type: "radio",
                 question: "What is your primary role?",
                 options:[
                     "Software Developer/Engineer",  
@@ -29,7 +29,7 @@ export const BasicInformation = {
             },
             {
                 name:"years_of_experience",
-                type: "radioBtn",
+                type: "radio",
                 question: "How many years of coding experience do you have?",
                 options:[
                     "Less than 1 year",
@@ -41,7 +41,7 @@ export const BasicInformation = {
             },
             {
                 name:"programming_language",
-                type: "radioBtn",
+                type: "check",
                 question: "Which programming languages or frameworks do you primarily use?",
                 options:[
                     "JavaScript",

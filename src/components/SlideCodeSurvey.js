@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import Image from 'next/image'
 import { BasicInformation } from '@/surveyData';
 
@@ -38,13 +38,54 @@ const SlideCodeSurvey = () => {
                             return <div key={i} className='my-4'>
                                         <label className='font-ArchivoMedium text-sm sm:text-base'>{survey.question}</label>
                                         <div className=' w-full'>
-                                            <input className='text-xs sm:text-sm font-ArchivoRegular py-2 px-3 border border-slate-200 rounded w-full outline-bgDark focus:border-bgDark' name={survey.name} type={survey.type.split(":")[1]} />
+                                            <input className='text-xs sm:text-sm font-ArchivoRegular py-2 px-3 border border-slate-200 rounded w-full outline-bgSecondary focus:border-bgSecondary accent-bgSecondary' name={survey.name} type={survey.type.split(":")[1]} />
                                         </div>
                                     </div>
                         }
 
-                        if(survey.type === "radioBtn"){
-                            return  
+                        if(survey.type === "radio"){
+                            return <div key={i} className='my-4'>
+                                        <label className='font-ArchivoMedium text-sm sm:text-base'>{survey.question}</label>
+                                        <div className=' w-full'>
+                                            {
+                                                survey.options.map((option, i)=>{
+                                                    if(option==="Other"){
+                                                        return <div key={i} className=' ml-5'>
+                                                            <label className='font-ArchivoRegular text-sm sm:text-base'>{option}</label>
+                                                            <div className=' w-full'>
+                                                                <input className='text-xs sm:text-sm font-ArchivoRegular py-2 px-3 border border-slate-200 rounded w-full outline-bgSecondary focus:border-bgSecondary accent-bgSecondary' name={survey.name} type="text" />
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                    return  <div className='flex gap-x-2' key={i}>
+                                                                <div>
+                                                                    <input className='text-xs sm:text-sm font-ArchivoRegular outline-bgSecondary focus:border-bgSecondary accent-bgSecondary' type="radio" id={option} name={survey.name} value={option} />
+                                                                </div>
+                                                                <label className='font-ArchivoRegular text-sm sm:text-base' htmlFor={option}>{option}</label>
+                                                            </div>
+                                                })
+                                            }
+                                        </div>
+                                    </div>
+                        }
+
+                        
+                        if(survey.type === "check"){
+                            return <div key={i} className='my-4'>
+                                        <label className='font-ArchivoMedium text-sm sm:text-base'>{survey.question}</label>
+                                        <div className=' w-full'>
+                                            {
+                                                survey.options.map((option, i)=>{
+                                                    return  <div className='flex gap-x-2' key={i}>
+                                                                <div>
+                                                                    <input className='text-xs sm:text-sm font-ArchivoRegular outline-bgSecondary focus:border-bgSecondary accent-bgSecondary' type="checkbox" id={option} name={survey.name} value={option} />
+                                                                </div>
+                                                                <label className='font-ArchivoRegular text-sm sm:text-base' htmlFor={option}>{option}</label>
+                                                            </div>
+                                                })
+                                            }
+                                        </div>
+                                    </div>
                         }
                     })
                 }
