@@ -5,13 +5,13 @@ export const BasicInformation = {
         surveys:[
             {
                 name:"name",
-                type: "text",
+                type: "singleInput:text",
                 question: "Name",
             },
             {
                 name:"email",
-                type: "email",
-                question: "Name",
+                type: "singleInput:email",
+                question: "Email",
             },
             {
                 name:"role",
