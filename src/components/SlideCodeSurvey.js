@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import Image from 'next/image'
 import { BasicInformation, CurrentPractices, Feedback, GitHubUsage, InterestInFeatures } from '@/surveyData';
+import { api } from '@/utils/axiosConfig';
 
 
 const SlideCodeSurvey = () => {
@@ -83,7 +84,18 @@ const SlideCodeSurvey = () => {
 
     function handleSubmit(e){
         e.preventDefault();
+        const formData = new FormData(e.target);
         console.log(e);
+        try{
+            const response = api.post("/survey", formData, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                }
+            });
+            console.log(response);
+        }catch(err){
+            console.log("Err: ", err);
+        }
     }
 
 
