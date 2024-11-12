@@ -2,7 +2,8 @@ import React, { Fragment } from 'react'
 import Image from 'next/image'
 import { BasicInformation, CurrentPractices, Feedback, GitHubUsage, InterestInFeatures } from '@/surveyData';
 import { api } from '@/utils/axiosConfig';
-
+import dynamic from 'next/dynamic';
+const PdfRender =  dynamic(() => import('@/components/PdfRender'),{ssr:false})
 
 const SlideCodeSurvey = () => {
     const metadata = {
@@ -13,33 +14,42 @@ const SlideCodeSurvey = () => {
     const renderInput = (survey, i) => {
         if(survey.type.split(":")[0] === "singleInput"){
             return <div key={i} className='my-4'>
-                        <label className='font-ArchivoMedium text-sm sm:text-base'>{survey.question}</label>
+                        <label className='font-ArchivoMedium text-base'>{survey.question}</label>
                         <div className=' w-full'>
-                            <input className='text-xs sm:text-sm font-ArchivoRegular py-2 px-3 border border-slate-200 rounded w-full outline-bgSecondary focus:border-bgSecondary accent-bgSecondary' name={survey.name} type={survey.type.split(":")[1]} />
+                            <input className='text-xs sm:text-sm font-ArchivoRegular py-2 px-3 border border-slate-200 rounded w-full outline-bgSecondary focus:border-bgSecondary accent-bgSecondary' name={survey.name} type={survey.type.split(":")[1]} required/>
+                        </div>
+                    </div>
+        }
+
+        if(survey.type.split(":")[0] === "singleInputNotRequired"){
+            return <div key={i} className='my-4'>
+                        <label className='font-ArchivoMedium text-base'>{survey.question}</label>
+                        <div className=' w-full'>
+                            <input className='text-xs sm:text-sm font-ArchivoRegular py-2 px-3 border border-slate-200 rounded w-full outline-bgSecondary focus:border-bgSecondary accent-bgSecondary' name={survey.name} type={survey.type.split(":")[1]}/>
                         </div>
                     </div>
         }
 
         if(survey.type === "radio"){
             return <div key={i} className='my-4'>
-                        <h3 className='font-ArchivoMedium text-sm sm:text-base'>{survey.question}</h3>
+                        <h3 className='font-ArchivoMedium text-base mb-2'>{survey.question}</h3>
                         <div className=' w-full'>
                             {
                                 survey.options.map((option, i)=>{
                                     if(option==="Other"){
-                                        return  <div key={i} className='flex items-center gap-x-2'>
+                                        return  <div key={i} className='flex items-center gap-x-2 my-1'>
                                                     <div className=''>
                                                         <input className='text-xs sm:text-sm font-ArchivoRegular border border-slate-200 rounded w-full outline-bgSecondary focus:border-bgSecondary accent-bgSecondary' name={survey.name} type="radio" id={`${survey.name}:Other`} value={option} />
                                                     </div>
                                                     <label className='font-ArchivoRegular text-sm' htmlFor={`${survey.name}:Other`}>{option}</label>
                                                     <div className='w-full'>
-                                                        <input className='w-full text-xs sm:text-sm font-ArchivoRegular border-b border-b-slate-300 focus:border-b-bgSecondary focus:outline-transparent accent-bgSecondary' name={`${survey.name}:Other`} type="text" />
+                                                        <input className='w-full text-xs sm:text-sm font-ArchivoRegular border-b border-b-slate-300 focus:border-b-bgSecondary focus:outline-transparent accent-bgSecondary' name={`${survey.name}_Other`} type="text" />
                                                     </div>
                                                 </div>
                                     }
-                                    return  <div className='flex gap-x-2' key={i}>
+                                    return  <div className='flex gap-x-2 my-1' key={i}>
                                                 <div>
-                                                    <input className='text-xs sm:text-sm font-ArchivoRegular outline-bgSecondary focus:border-bgSecondary accent-bgSecondary' type="radio" id={option} name={survey.name} value={option} />
+                                                    <input className='text-xs sm:text-sm font-ArchivoRegular outline-bgSecondary focus:border-bgSecondary accent-bgSecondary' type="radio" id={option} name={survey.name} value={option} required />
                                                 </div>
                                                 <label className='font-ArchivoRegular text-sm' htmlFor={option}>{option}</label>
                                             </div>
@@ -52,24 +62,24 @@ const SlideCodeSurvey = () => {
         
         if(survey.type === "check"){
             return <div key={i} className='my-4'>
-                        <label className='font-ArchivoMedium text-sm sm:text-base'>{survey.question}</label>
+                        <h3 className='font-ArchivoMedium text-base mb-2'>{survey.question}</h3>
                         <div className=' w-full'>
                             {
                                 survey.options.map((option, i)=>{
                                     if(option==="Other"){
-                                        return  <div key={i} className='flex items-center gap-x-2'>
+                                        return  <div key={i} className='flex items-center gap-x-2 my-1'>
                                                     <div className=''>
                                                         <input className='text-xs sm:text-sm font-ArchivoRegular border border-slate-200 rounded w-full outline-bgSecondary focus:border-bgSecondary accent-bgSecondary' 
                                                             name={survey.name} type="checkbox" id={`${survey.name}:Other`} value={option} />
                                                     </div>
                                                     <label className='font-ArchivoRegular text-sm' htmlFor={`${survey.name}:Other`}>{option}</label>
                                                     <div className='w-full'>
-                                                        <input className='w-full text-xs sm:text-sm font-ArchivoRegular border-b border-b-slate-300 focus:border-b-bgSecondary focus:outline-transparent accent-bgSecondary' name={`${survey.name}:Other`} type="text" />
+                                                        <input className='w-full text-xs sm:text-sm font-ArchivoRegular border-b border-b-slate-300 focus:border-b-bgSecondary focus:outline-transparent accent-bgSecondary' name={`${survey.name}_Other`} type="text" />
                                                     </div>
                                                 </div>
                                     }
 
-                                    return  <div className='flex gap-x-2' key={i}>
+                                    return  <div className='flex gap-x-2  my-1' key={i}>
                                                 <div>
                                                     <input className='text-xs sm:text-sm font-ArchivoRegular outline-bgSecondary focus:border-bgSecondary accent-bgSecondary' type="checkbox" id={option} name={survey.name} value={option} />
                                                 </div>
@@ -82,12 +92,13 @@ const SlideCodeSurvey = () => {
         }
     }
 
-    function handleSubmit(e){
+    async function handleSubmit(e){
         e.preventDefault();
         const formData = new FormData(e.target);
-        console.log(e);
+        formData.append("type_of_visuals", "https://harmonic-web.vercel.app/survey.png");
+
         try{
-            const response = api.post("/survey", formData, {
+            const response = await api.post("/surveyResponse", formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 }
@@ -95,6 +106,7 @@ const SlideCodeSurvey = () => {
             console.log(response);
         }catch(err){
             console.log("Err: ", err);
+            alert(err.message);
         }
     }
 
@@ -117,6 +129,10 @@ const SlideCodeSurvey = () => {
         <div className='w-full bg-white mt-3 p-5 rounded-md shadow-md'>
             <h3 className='font-ArchivoSemiBold text-base'>Description: </h3>
             <p className='font-ArchivoMedium text-sm'>{metadata.description}</p>
+        </div>
+
+        <div>
+            <PdfRender />
         </div>
 
         <form onSubmit={handleSubmit}>

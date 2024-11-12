@@ -1,3 +1,4 @@
+import dbConnect from "@/db/dbConnect";
 import formidable from "formidable";
 
 
@@ -7,7 +8,8 @@ export const config = {
     },
 };
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
+    await dbConnect();
 
     if (req.method === 'POST') {
         try{

@@ -40,7 +40,7 @@ export const BasicInformation = {
                 ]
             },
             {
-                name:"programming_language",
+                name:"programming_languages",
                 type: "check",
                 question: "Which programming languages or frameworks do you primarily use?",
                 options:[
@@ -60,7 +60,7 @@ export const BasicInformation = {
             },
             {
                 name:"share_code_frequency",
-                type: "select",
+                type: "radio",
                 question: "How often do you share coding or project-related content on LinkedIn?",
                 options:[
                     "Weekly",
@@ -71,7 +71,7 @@ export const BasicInformation = {
             },
             {
                 name:"type_of_content",
-                type: "select",
+                type: "check",
                 question: "What types of content do you typically share on LinkedIn? (Select all that apply)",
                 options:[
                     "Code snippets and technical explanations",
@@ -91,8 +91,8 @@ export const BasicInformation = {
                 ]
             },
             {
-                name:"share_code_frequency",
-                type: "select",
+                name:"content_idea_source",
+                type: "check",
                 question: "How do you get Ideas on what to post on Linkedin to put yourself out there?",
                 options:[
                     "Browsing Content from Others (e.g., looking at posts from connections, influencers, or popular LinkedIn profiles)",
@@ -342,7 +342,7 @@ export const Feedback = {
     surveys: [
         {
             name: "feature_improvements",
-            type: "singleInput:textarea",
+            type: "singleInputNotRequired:textarea",
             question: "What other features or improvements would you like to see in a tool designed to help developers showcase their work on LinkedIn?",
         },
         {
@@ -362,7 +362,7 @@ export const Feedback = {
         },
         {
             name: "additional_feedback",
-            type: "singleInput:textarea",
+            type: "singleInputNotRequired:textarea",
             question: "Any additional feedback or suggestions for the SlideCode project?",
         }
     ]

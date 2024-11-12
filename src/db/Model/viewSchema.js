@@ -1,16 +1,6 @@
 import mongoose from 'mongoose';
-import articles from '../Model/articleSchema'
 
 const viewSchema=new mongoose.Schema({
-  page_link:{
-    type:String,
-    required:true
-  },
-  pageId:{
-    type:mongoose.Schema.Types.ObjectId,
-    ref:articles,
-    required:true
-  },
   day:{
     type:String,
     required:true,
@@ -25,13 +15,9 @@ const viewSchema=new mongoose.Schema({
     type:String,
     required:true,
     immutable:true
-  },
-  created_at:{
-    type:Date,
-    default:()=>Date.now(),
-    required:true,
-    immutable:true
   }
+},{
+  timestamps: true
 })
 
 

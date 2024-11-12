@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const staffSchema=new mongoose.Schema({
-  full_name:{
+  name:{
     type:String,
     required:true
   },
@@ -9,79 +9,14 @@ const staffSchema=new mongoose.Schema({
     type:String,
     required:true
   },
-  position:{
-    type:String,
-    required:true
-  },
-  description:{
-    type:String,
-    required:true
-  },
-  priveldges:{
-    type:Array,
-    required:true
-  },
   password:{
     type:String,
     required:true
   },
-  whatsapp:{
-   status:{
-    type:String,
-    required:true
-   },
-   link:String
-  },
-  dribble:{
-    status:{
-     type:String,
-     required:true
-    },
-    link:String
-   },
-  github:{
-  status:{
+  role:{
     type:String,
     required:true
   },
-  link:String
-  },
-  linkedin:{
-    status:{
-     type:String,
-     required:true
-    },
-    link:String
-   },
-   twitter:{
-    status:{
-     type:String,
-     required:true
-    },
-    link:String
-   },
-   instagram:{
-    status:{
-     type:String,
-     required:true
-    },
-    link:String
-   },
-   img:{
-    public_id:{
-      type:String,
-      required:true
-    },
-    url:{
-      type:String,
-      required:true
-    }
-  },
-  status:{
-    type:String,
-    required:true
-  },
-  admin:Boolean,
   day:{
     type:String,
     required:true,
@@ -97,14 +32,10 @@ const staffSchema=new mongoose.Schema({
     required:true,
     immutable:true
   },
-  created_at:{
-    type:Date,
-    default:()=>Date.now(),
-    required:true,
-    immutable:true
-  }
+},{
+  timestamps: true
 })
 
 
 //---------------------------------------------------
-module.exports=mongoose.models.staffs || mongoose.model('staffs',staffSchema);
+module.exports=mongoose.models.Staff || mongoose.model('Staff',staffSchema);
