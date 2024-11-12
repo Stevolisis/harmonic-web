@@ -107,3 +107,263 @@ export const BasicInformation = {
             
         ]
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+export const CurrentPractices = {
+    name: "CurrentPractices",
+    surveys: [
+        {
+            name: "create_visuals",
+            type: "check",
+            question: "How do you currently create visuals for LinkedIn posts related to your work or code?",
+            options: [
+                "I design them from scratch (Photoshop, Illustrator, Figma, etc.)",
+                "I use pre-made templates (e.g., Canva, PowerPoint)",
+                "I pay a freelancer or use a paid service",
+                "I don’t use visuals; I post text-based content only",
+                "Other",
+            ]
+        },
+        {
+            name: "time_spent_creating",
+            type: "radio",
+            question: "How much time do you spend creating visuals or content posts for LinkedIn?",
+            options: [
+                "Less than 1 hour",
+                "1-3 hours",
+                "3-5 hours",
+                "More than 5 hours"
+            ]
+        },
+        {
+            name: "documentation_tools",
+            type: "check",
+            question: "What tools do you currently use to document your code or create presentations?",
+            options: [
+                "GitHub/Bitbucket READMEs",
+                "Markdown",
+                "Google Docs",
+                "Microsoft Word/PowerPoint",
+                "Jupyter Notebooks",
+                "Notion",
+                "Carbon",
+                "Snappify",
+                "Other"
+            ]
+        },
+        {
+            name: "content_challenges",
+            type: "check",
+            question: "What challenges do you face in creating LinkedIn content?",
+            options: [
+                "Keeping documentation up-to-date",
+                "Making content visually appealing",
+                "Creating slides to present my work",
+                "Finding or designing visual templates for code/content",
+                "Writing engaging descriptions for code snippets",
+                "Consistently creating high-quality content",
+                "Finding time to create and post regularly",
+                "Feeling confident in sharing progress or technical knowledge",
+                "I don’t know where to start",
+                "Other"
+            ]
+        },
+        {
+            name: "consider_paid_services",
+            type: "radio",
+            question: "Have you ever paid for or considered paying for design services or tools (e.g., Canva) to improve your LinkedIn content?",
+            options: [
+                "Yes, frequently",
+                "Yes, occasionally",
+                "No, I do it all myself",
+                "No, I haven’t needed to"
+            ]
+        },
+        {
+            name: "satisfaction_level",
+            type: "radio",
+            question: "How satisfied are you with your current method for creating LinkedIn content?",
+            options: [
+                "Very satisfied",
+                "Somewhat satisfied",
+                "Neutral",
+                "Somewhat dissatisfied",
+                "Very dissatisfied"
+            ]
+        },
+    ]
+};
+
+
+
+
+
+
+
+
+
+export const GitHubUsage = {
+    name: "GitHubUsage",
+    surveys: [
+        {
+            name: "commit_frequency",
+            type: "radio",
+            question: "How often do you commit code to GitHub or other version control platforms?",
+            options: [
+                "Daily",
+                "Weekly",
+                "Monthly",
+                "Rarely",
+                "Never"
+            ]
+        },
+        {
+            name: "importance_of_showcasing",
+            type: "radio",
+            question: "How important is it for you to share or showcase your work on GitHub or platforms like LinkedIn?",
+            options: [
+                "Very important",
+                "Somewhat important",
+                "Not important"
+            ]
+        }
+    ]
+};
+
+
+
+
+
+
+
+
+
+
+export const InterestInFeatures = {
+    name: "InterestInFeatures",
+    surveys: [
+        {
+            name: "interest_in_templates",
+            type: "radio",
+            question: "Would you be interested in a tool that provides ready-made, customizable templates specifically designed for developers to showcase code and project updates?",
+            options: [
+                "Yes, definitely",
+                "Possibly",
+                "Not sure",
+                "Probably not",
+                "No, not interested"
+            ]
+        },
+        {
+            name: "helpfulness_of_auto_tracking",
+            type: "radio",
+            question: "How helpful would it be to have SlideCode automatically track your GitHub commits or project updates and suggest content ideas?",
+            options: [
+                "Very helpful",
+                "Somewhat helpful",
+                "Neutral",
+                "Not very helpful",
+                "Not helpful at all"
+            ]
+        },
+        {
+            name: "likelihood_of_use",
+            type: "radio",
+            question: "How likely are you to use SlideCode if it significantly reduced the time needed to create LinkedIn posts?",
+            options: [
+                "Very likely",
+                "Somewhat likely",
+                "Neutral",
+                "Not very likely",
+                "Not likely at all"
+            ]
+        },
+        {
+            name: "valuable_features",
+            type: "check",
+            question: "Which features would be most valuable to you in SlideCode?",
+            options: [
+                "Access to ready-made, editable templates for code visuals",
+                "Customizable slide templates",
+                "AI-assisted content ideas or topic generation",
+                "Automatic slide generation with code explanations",
+                "Content planning and tracking for consistency",
+                "Easy sharing to LinkedIn",
+                "Regular reminders to post and engage on LinkedIn",
+                "Confidence-building quotes to encourage sharing work",
+                "Integration with GitHub/GitLab/Bitbucket",
+                "Auto-detecting major changes and documenting them",
+                "Easy formatting for code snippets and explanations",
+                "Other"
+            ]
+        },
+        {
+            name: "payment_amount",
+            type: "radio",
+            question: "What is the maximum monthly amount you would consider paying for SlideCode’s full suite of tools (content tracking, reminders, customizable templates, and AI suggestions)?",
+            options: [
+                "$0 (I would only use a free version)",
+                "$5-10",
+                "$10-20",
+                "$20-30",
+                "More than $30"
+            ]
+        }
+    ]
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+export const Feedback = {
+    name: "Feedback",
+    surveys: [
+        {
+            name: "feature_improvements",
+            type: "singleInput:textarea",
+            question: "What other features or improvements would you like to see in a tool designed to help developers showcase their work on LinkedIn?",
+        },
+        {
+            name: "automated_tool_help",
+            type: "singleInput:textarea",
+            question: "Do you think an automated tool like SlideCode could help improve your workflow or showcase your work? If yes, how? If no, why not?",
+        },
+        {
+            name: "beta_test_interest",
+            type: "radio",
+            question: "Would you be interested in participating in a beta test for SlideCode when it's ready?",
+            options: [
+                "Yes",
+                "No",
+                "Maybe"
+            ]
+        },
+        {
+            name: "additional_feedback",
+            type: "singleInput:textarea",
+            question: "Any additional feedback or suggestions for the SlideCode project?",
+        }
+    ]
+};
