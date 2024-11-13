@@ -74,7 +74,7 @@ const index = () => {
                 <tbody>
                     {
                         surveyResponse.map((survey, i)=>(
-                            <tr>
+                            <tr key={i}>
                                 <td className=' p-3 whitespace-nowrap'>{survey.name}</td>
                                 <td className=' p-3'>{survey.email}</td>
                                 <td className=' p-3'>{survey.role}</td>
