@@ -11,6 +11,7 @@ const surveySchema = new mongoose.Schema({
       "Data Scientist", "DevOps Engineer", "Student", "Other"
     ] 
   },
+  role_Other: { type: String },
   years_of_experience: { 
     type: String, 
     enum: ["Less than 1 year", "1-3 years", "3-5 years", "5-10 years", "More than 10 years"] 
@@ -18,22 +19,27 @@ const surveySchema = new mongoose.Schema({
   programming_languages: { 
     type: [String],
   },
+  programming_languages_Other: { type: String },
   share_code_frequency: { 
     type: String, 
     enum: ["Weekly", "Monthly", "Occasionally", "Rarely/Never"] 
   },
   type_of_content: { type: [String] },
+  type_of_content_Other: { type: String },
   type_of_visuals: { type: [String] },
   content_idea_source: { type: [String] },
 
   // Current Practices
   create_visuals: { type: [String] },
+  create_visuals_Other: { type: String },
   time_spent_creating: { 
     type: String, 
     enum: ["Less than 1 hour", "1-3 hours", "3-5 hours", "More than 5 hours"] 
   },
   documentation_tools: { type: [String] },
+  documentation_tools_Other: { type: String },
   content_challenges: { type: [String] },
+  content_challenges_Other: { type: String },
   consider_paid_services: { 
     type: String, 
     enum: ["Yes, frequently", "Yes, occasionally", "No, I do it all myself", "No, I haven’t needed to"] 
@@ -67,6 +73,7 @@ const surveySchema = new mongoose.Schema({
     enum: ["Very likely", "Somewhat likely", "Neutral", "Not very likely", "Not likely at all"] 
   },
   valuable_features: { type: [String] },
+  valuable_features_Other: { type: String },
   payment_amount: { 
     type: String, 
     enum: ["$0 (I would only use a free version)", "$5-10", "$10-20", "$20-30", "More than $30"] 
@@ -80,6 +87,7 @@ const surveySchema = new mongoose.Schema({
     enum: ["Yes", "No", "Maybe"] 
   },
   additional_feedback: { type: String },
+  read: { type: Boolean, required:true },
   day:{
     type:String,
     required:true,
