@@ -11,7 +11,7 @@ const index = () => {
     const [ negativeSurveyResponse, setNegativeSurveyResponse ]= useState(0);
     const [ neutralSurveyResponse, setNeutralSurveyResponse ]= useState(9);
     const router = useRouter();
-    
+
     async function getSurveyReport(){
         const token = localStorage.getItem("SlideToken");
 

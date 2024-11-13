@@ -1,8 +1,8 @@
 const { default: axios } = require("axios");
 
 export const api = axios.create({
-    baseURL: "http://localhost:3000/api",
+    baseURL: process.env.NEXT_PUBLIC_AxiosBaseURL,
     // baseURL: "https://harmonic-web.vercel.app",
 });
 
-export const baseURL = "http://localhost:3000";
+export const baseURL = process.env.NEXT_PUBLIC_baseURL;
