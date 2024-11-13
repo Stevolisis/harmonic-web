@@ -40,5 +40,7 @@ export default async function handler(req, res) {
             return res.status(500).json({ status: 'error', message: 'Error Occurred, Try again!!' });
         }
 
+    }else {
+        return res.status(405).json({ status: 'error', message: 'Method Not Allowed' });
     }
 }

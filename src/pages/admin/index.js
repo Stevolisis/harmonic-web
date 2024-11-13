@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router';
 import { api, baseURL } from '@/utils/axiosConfig';
-import { IoCheckmarkDoneSharp } from "react-icons/io5";
+import { MdOutlineMarkEmailUnread, MdOutlineMarkEmailRead } from "react-icons/md";
 import { IoEye } from "react-icons/io5";
 import Link from 'next/link';
 
@@ -78,7 +78,11 @@ const index = () => {
                                 <td className=' p-3 whitespace-nowrap'>{survey.name}</td>
                                 <td className=' p-3'>{survey.email}</td>
                                 <td className=' p-3'>{survey.role}</td>
-                                <td className=' p-3'><IoCheckmarkDoneSharp size={20} className={`cursor-pointer ${survey.read ? " text-[dodgerblue] " : " text-gray-200"}`}/></td>
+                                <td className=' p-3'>
+                                    {
+                                        survey.read ? <MdOutlineMarkEmailRead size={20}/> : <MdOutlineMarkEmailUnread  size={20}/>
+                                    }
+                                </td>
                                 <td className=' p-3'><Link href={`/admin/responses/${survey._id}`}> <IoEye size={20} /> </Link> </td>
                             </tr>
                         ))

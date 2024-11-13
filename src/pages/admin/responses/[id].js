@@ -175,11 +175,10 @@ const Responses = () => {
 
     async function handleSubmit(e) {
         e.preventDefault();
-        const formData = new FormData(e.target);
         const token = localStorage.getItem("SlideToken");
 
         try {
-            const response = await api.patch(`/markAsRead?id=${id}`, formData, {
+            const response = await api.patch(`/markAsRead?id=${id}`, {
                 headers: {
                     "Authorization": `Bearer ${token}`,
                 },
