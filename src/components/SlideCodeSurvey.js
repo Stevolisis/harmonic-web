@@ -49,9 +49,9 @@ const SlideCodeSurvey = () => {
                                     }
                                     return  <div className='flex gap-x-2 my-1' key={i}>
                                                 <div>
-                                                    <input className='text-xs sm:text-sm font-ArchivoRegular outline-bgSecondary focus:border-bgSecondary accent-bgSecondary' type="radio" id={option} name={survey.name} value={option} required />
+                                                    <input className='text-xs sm:text-sm font-ArchivoRegular outline-bgSecondary focus:border-bgSecondary accent-bgSecondary' type="radio" id={`${survey.name}_${option}`} name={survey.name} value={option} required />
                                                 </div>
-                                                <label className='font-ArchivoRegular text-sm' htmlFor={option}>{option}</label>
+                                                <label className='font-ArchivoRegular text-sm' htmlFor={`${survey.name}_${option}`}>{option}</label>
                                             </div>
                                 })
                             }

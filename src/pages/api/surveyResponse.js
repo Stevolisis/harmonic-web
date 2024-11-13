@@ -9,10 +9,11 @@ export const config = {
 };
 
 export default async function handler(req, res) {
-    await dbConnect();
 
     if (req.method === 'POST') {
         try {
+            await dbConnect();
+
             const form = formidable({});
             const date=new Date();
 
