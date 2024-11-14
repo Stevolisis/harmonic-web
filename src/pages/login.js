@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useRouter } from 'next/router';
 import { api, baseURL } from '@/utils/axiosConfig';
 
 
 const login = () => {
     const router = useRouter();
+    const [ loading, setLoading ] = useState(false);
     const { next }= router.query;
 
     async function handleSubmit(e){
         e.preventDefault();
+        setLoading(true);
         const formData = new FormData(e.target);
 
         try{
@@ -19,7 +21,8 @@ const login = () => {
             });
             const data = response.data;
             localStorage.setItem("SlideToken", data.token);
-            console.log(response,router.pathname, router.asPath.split('?')[0]);
+            setLoading(false);
+
             if(router.pathname!==router.asPath.split('?')[0]){
                 router.reload();
             }else{
@@ -27,6 +30,8 @@ const login = () => {
             }
         }catch(err){
             console.log("Err: ", err);
+            setLoading(false);
+            if(err.response?.data.message) return alert(err.response?.data.message);
             alert(err.message);
         }
     }
@@ -41,9 +46,15 @@ const login = () => {
                 <input  className='text-xs sm:text-sm font-ArchivoRegular py-2 px-3 border border-slate-300 rounded w-full outline-bgSecondary focus:border-bgSecondary accent-bgSecondary' name='name' type='text' placeholder='Name'/>
                 <input  className='text-xs sm:text-sm font-ArchivoRegular py-2 px-3 border border-slate-300 rounded w-full outline-bgSecondary focus:border-bgSecondary accent-bgSecondary' name='password' type='password' placeholder='Password'/>
                 <div className='flex justify-end'>
-                    <button type="submit" className='mt-4 bg-bgSecondary hover:shadow-none text-white px-6 py-2 rounded-md shadow-md'>
+                    {
+                        loading ? 
+                        <button type="submit" className='mt-4 bg-bgSecondary text-white px-6 py-2 rounded-md'>
+                            Submitting
+                        </button> : 
+                        <button type="submit" className='mt-4 bg-bgDark transition-colors hover:shadow-none text-white px-6 py-2 rounded-md shadow-md'>
                             Submit
-                    </button>
+                        </button>
+                    }
                 </div>
 
             </form>

@@ -9,6 +9,7 @@ const PdfRender = dynamic(() => import('@/components/PdfRender'), { ssr: false }
 
 const Responses = () => {
     const [surveyResponse, setSurveyResponse] = useState(null);
+    const [ loading, setLoading ] = useState(false);
     const router = useRouter();
     const { id } = router.query;
 
@@ -175,6 +176,7 @@ const Responses = () => {
 
     async function handleSubmit(e) {
         e.preventDefault();
+        setLoading(true);
         const token = localStorage.getItem("SlideToken");
 
         try {
@@ -183,9 +185,13 @@ const Responses = () => {
                     "Authorization": `Bearer ${token}`,
                 },
             });
+            setLoading(false);
             console.log(response);
+            alert(response.data.message);
         } catch (err) {
+            setLoading(false);
             console.log("Err: ", err);
+            if(err.response?.data?.message) return alert(err.response.data.message);
             alert(err.message);
         }
     }
@@ -245,9 +251,15 @@ const Responses = () => {
                         </div>
 
                         <div className="flex justify-end">
-                            <button type="submit" className="mt-4 bg-bgSecondary hover:shadow-none text-white px-6 py-2 rounded-md shadow-md">
-                                Mark As Read
-                            </button>
+                            {
+                                loading ? 
+                                <button type="submit" className="mt-4 bg-bgSecondary text-white px-6 py-2 rounded-md">
+                                    Submitting
+                                </button> : 
+                                <button type="submit" className="mt-4 bg-bgDark hover:shadow-none text-white px-6 py-2 rounded-md shadow-md">
+                                    Mark As Read
+                                </button>
+                            }
                         </div>
                     </form>
                 )}

@@ -19,7 +19,7 @@ export default async function handler(req, res) {
                     return res.status(403).json({ status: 'error', message: 'You are not Authorized to access this route, please sign in!!' });
                 }
 
-                const allSurveys = await Survey.find();
+                const allSurveys = await Survey.find().sort("read");
                 
     
                 const positiveInterest = ["Yes, definitely", "Possibly"];

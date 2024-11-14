@@ -1,11 +1,15 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import Image from 'next/image'
 import { BasicInformation, CurrentPractices, Feedback, GitHubUsage, InterestInFeatures } from '@/surveyData';
 import { api } from '@/utils/axiosConfig';
 import dynamic from 'next/dynamic';
+import { useRouter } from 'next/router';
 const PdfRender =  dynamic(() => import('@/components/PdfRender'),{ssr:false})
 
 const SlideCodeSurvey = () => {
+    const [ loading, setLoading ] = useState(false);
+    const router = useRouter();
+    
     const metadata = {
         name: "HarmonicSlide",
         description: "Hi! We’re developing a tool called HarmonicSlide.HarmonicSlide is a tool to help developers effortlessly create and share professional, visually engaging content on LinkedIn and other platforms. With ready-made templates, content suggestions based on your recent code updates, and easy customization, HarmonicSlide saves you time and enhances your ability to showcase your work."
@@ -94,6 +98,7 @@ const SlideCodeSurvey = () => {
 
     async function handleSubmit(e){
         e.preventDefault();
+        setLoading(true);
         const formData = new FormData(e.target);
         formData.append("type_of_visuals", "https://harmonic-web.vercel.app/survey.png");
 
@@ -103,12 +108,33 @@ const SlideCodeSurvey = () => {
                     "Content-Type": "multipart/form-data",
                 }
             });
+            setLoading(false);
+            router.push("/surveyCompleted");
+            console.log("response: ",response);
+
+        }catch(err){
+            if(err.response?.data?.message) return alert(err.response?.data?.message);
+            alert(err.message);
+            setLoading(false);
+        }
+    }
+
+    async function setView(){
+        try{
+            const response = await api.post("/addView");
             console.log(response);
         }catch(err){
             console.log("Err: ", err);
-            alert(err.message);
         }
     }
+
+    useEffect(()=>{
+        const postView = async () => {
+            await setView();
+        };
+    
+        postView();
+    },[]);
 
 
   return (
@@ -168,9 +194,15 @@ const SlideCodeSurvey = () => {
             </div>
 
             <div className='flex justify-end'>
-                <button type="submit" className='mt-4 bg-bgSecondary hover:shadow-none text-white px-6 py-2 rounded-md shadow-md'>
+                {
+                    loading ? 
+                    <button type="submit" className='mt-4 bg-bgSecondary text-white px-6 py-2 rounded-md'>
+                        submitting...
+                    </button> : 
+                    <button type="submit" className='mt-4 bg-bgDark hover:shadow-none text-white px-6 py-2 rounded-md shadow-md'>
                         Submit Survey
-                </button>
+                    </button>
+                }
             </div>
         </form>
 

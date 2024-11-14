@@ -10,6 +10,7 @@ const index = () => {
     const [ positiveSurveyResponse, setPositiveSurveyResponse ]= useState(0);
     const [ negativeSurveyResponse, setNegativeSurveyResponse ]= useState(0);
     const [ neutralSurveyResponse, setNeutralSurveyResponse ]= useState(9);
+    const [ views, setViews ]= useState([]);
     const router = useRouter();
 
     async function getSurveyReport(){
@@ -29,13 +30,28 @@ const index = () => {
 
 
         }catch(err){
-            alert(err.message);
-            router.push(`${baseURL}/login?next=${router.asPath.split('?')[0]}`);
+            if(err.response.data.message) return router.push(`${baseURL}/login?next=${router.asPath.split('?')[0]}`);
+        }
+    }
+
+    async function getViews(){
+        try{
+            const token = localStorage.getItem("SlideToken");
+            const response = await api.get("/getViews",{
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            });
+            console.log(response);
+            setViews(response.data.data);
+        }catch(err){
+            console.log("Err: ", err);
         }
     }
 
     useEffect(()=>{
-        getSurveyReport()
+        getSurveyReport();
+        getViews();
     },[]);
 
   return (
@@ -47,6 +63,9 @@ const index = () => {
         <div className=' flex md:flex-nowrap flex-wrap justify-around items-center gap-2 my-3'>
             <div className=' bg-[dodgerblue] p-3 rounded flex-1'>
                 <p className=' text-white font-ArchivoMedium text-lg whitespace-nowrap'>Total: {surveyResponse.length}</p>
+            </div>
+            <div className=' bg-orange-600 p-3 rounded flex-1'>
+                <p className=' text-white font-ArchivoMedium text-lg whitespace-nowrap'>Views: {views.length}</p>
             </div>
             <div className=' bg-green-700 p-3 rounded flex-1'>
                 <p className=' text-white font-ArchivoMedium text-lg whitespace-nowrap'>Positive: {positiveSurveyResponse}</p>
