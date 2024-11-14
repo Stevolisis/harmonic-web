@@ -129,11 +129,7 @@ const SlideCodeSurvey = () => {
     }
 
     useEffect(()=>{
-        const postView = async () => {
-            await setView();
-        };
-    
-        postView();
+        //setView();
     },[]);
 
 
