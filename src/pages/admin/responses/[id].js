@@ -4,6 +4,7 @@ import { BasicInformation, CurrentPractices, Feedback, GitHubUsage, InterestInFe
 import { api, baseURL } from '@/utils/axiosConfig';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
+import ImageOption from '@/components/ImageOption';
 
 const PdfRender = dynamic(() => import('@/components/PdfRender'), { ssr: false });
 
@@ -22,7 +23,37 @@ const Responses = () => {
     };
     const renderInput = (survey, i) => {
         const surveyValue = surveyResponse && surveyResponse[survey.name]; // Get current survey value
-      
+        
+        if(survey.type.split(":")[0] === "singleInput"){
+            return <div key={i} className='my-4'>
+                        <label className='font-ArchivoMedium text-base'>{survey.question}</label>
+                        <div className=' w-full'>
+                            <input className='text-xs sm:text-sm font-ArchivoRegular py-2 px-3 border border-slate-200 rounded w-full outline-bgSecondary focus:border-bgSecondary accent-bgSecondary' 
+                                name={survey.name} 
+                                type={survey.type.split(":")[1]} 
+                                value={surveyValue || ""}
+                                onChange={handleInputChange}
+                                
+                            />
+                        </div>
+                    </div>
+        }
+
+        if(survey.type.split(":")[0] === "singleInputNotRequired"){
+            return <div key={i} className='my-4'>
+                        <label className='font-ArchivoMedium text-base'>{survey.question}</label>
+                        <div className=' w-full'>
+                        <input className='text-xs sm:text-sm font-ArchivoRegular py-2 px-3 border border-slate-200 rounded w-full outline-bgSecondary focus:border-bgSecondary accent-bgSecondary' 
+                                name={survey.name} 
+                                type={survey.type.split(":")[1]} 
+                                value={surveyValue || ""}
+                                onChange={handleInputChange}
+                                
+                            />
+                        </div>
+                    </div>
+        }
+
         if (survey.type === "radio") {
           return (
             <div key={i} className="my-4">
@@ -61,7 +92,7 @@ const Responses = () => {
                                 value={option}
                                 checked={surveyValue === option} // Set initial checked value
                                 onChange={handleInputChange}
-                                required
+                                
                                 />
                                 <label className="font-ArchivoRegular text-sm" htmlFor={`${survey.name}_${option}`}>
                                 {option}
@@ -122,55 +153,38 @@ const Responses = () => {
                 </div>
             );
         }
-      
-        // Single Input Field Example (as in your code)
-        if (survey.type.split(":")[0] === "singleInput") {
-          return (
-            <div key={i} className="my-4">
-              <label className="font-ArchivoMedium text-base">{survey.question}</label>
-              <div className="w-full">
-                <input
-                  className="text-xs sm:text-sm font-ArchivoRegular py-2 px-3 border border-slate-200 rounded w-full outline-bgSecondary focus:border-bgSecondary accent-bgSecondary"
-                  name={survey.name}
-                  type={survey.type.split(":")[1]}
-                  value={surveyResponse[survey.name] || ""} // Set initial value
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-            </div>
-          );
-        }
 
-        if(survey.type.split(":")[0] === "singleInput"){
+        if(survey.type === "images"){
             return <div key={i} className='my-4'>
-                        <label className='font-ArchivoMedium text-base'>{survey.question}</label>
+                        <h3 className='font-ArchivoMedium text-base mb-2'>{survey.question}</h3>
                         <div className=' w-full'>
-                            <input className='text-xs sm:text-sm font-ArchivoRegular py-2 px-3 border border-slate-200 rounded w-full outline-bgSecondary focus:border-bgSecondary accent-bgSecondary' 
-                                name={survey.name} 
-                                type={survey.type.split(":")[1]} 
-                                value={surveyValue || ""}
-                                onChange={handleInputChange}
-                                required
-                            />
+                            {
+                                survey.options.map((option, i)=>{
+                                    return  <div className='my-1' key={i}>
+                                                <div className='flex gap-x-2 mb-2 mt-4'>
+                                                    <div>
+                                                    <input
+                                                        className="text-xs sm:text-sm font-ArchivoRegular outline-bgSecondary focus:border-bgSecondary accent-bgSecondary"
+                                                        type="checkbox"
+                                                        id={option}
+                                                        name={survey.name}
+                                                        value={option}
+                                                        checked={surveyValue && surveyValue.includes(option)} // Set initial checked value for checkboxes
+                                                        onChange={handleInputChange}
+                                                    />
+                                                    </div>
+                                                    <label className='font-ArchivoRegular text-sm' htmlFor={option}>{option}</label>
+                                                </div>
+                                                <div className=' bg-slate-100 px-2 py-2 flex items-center gap-x-3 overflow-x-auto'>
+                                                    <ImageOption option={option} />
+                                                </div>
+                                            </div>
+                                })
+                            }
                         </div>
                     </div>
         }
 
-        if(survey.type.split(":")[0] === "singleInputNotRequired"){
-            return <div key={i} className='my-4'>
-                        <label className='font-ArchivoMedium text-base'>{survey.question}</label>
-                        <div className=' w-full'>
-                        <input className='text-xs sm:text-sm font-ArchivoRegular py-2 px-3 border border-slate-200 rounded w-full outline-bgSecondary focus:border-bgSecondary accent-bgSecondary' 
-                                name={survey.name} 
-                                type={survey.type.split(":")[1]} 
-                                value={surveyValue || ""}
-                                onChange={handleInputChange}
-                                required
-                            />
-                        </div>
-                    </div>
-        }
       };
       
 

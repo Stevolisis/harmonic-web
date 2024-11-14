@@ -87,7 +87,12 @@ export const BasicInformation = {
                 type: "images",
                 question: "Which of this visuals do you usually use",
                 options:[
-                    survey,
+                    "Linkedin PDF Slides",
+                    "Linkedin PDF Slides with Code Explanations",
+                    "Code Snippets",
+                    "Social Media Posts",
+                    "Infographics",
+                    "Other",
                 ]
             },
             {

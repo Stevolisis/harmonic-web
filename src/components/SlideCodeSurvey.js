@@ -4,6 +4,7 @@ import { BasicInformation, CurrentPractices, Feedback, GitHubUsage, InterestInFe
 import { api } from '@/utils/axiosConfig';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
+import ImageOption from './ImageOption';
 const PdfRender =  dynamic(() => import('@/components/PdfRender'),{ssr:false})
 
 const SlideCodeSurvey = () => {
@@ -94,13 +95,35 @@ const SlideCodeSurvey = () => {
                         </div>
                     </div>
         }
+
+        if(survey.type === "images"){
+            return <div key={i} className='my-4'>
+                        <h3 className='font-ArchivoMedium text-base mb-2'>{survey.question}</h3>
+                        <div className=' w-full'>
+                            {
+                                survey.options.map((option, i)=>{
+                                    return  <div className='my-1' key={i}>
+                                                <div className='flex gap-x-2 mb-2 mt-4'>
+                                                    <div>
+                                                        <input className='text-xs sm:text-sm font-ArchivoRegular outline-bgSecondary focus:border-bgSecondary accent-bgSecondary' type="checkbox" id={option} name={survey.name} value={option} />
+                                                    </div>
+                                                    <label className='font-ArchivoRegular text-sm' htmlFor={option}>{option}</label>
+                                                </div>
+                                                <div className=' bg-slate-100 px-2 py-2 flex items-center gap-x-3 overflow-x-auto'>
+                                                    <ImageOption option={option} />
+                                                </div>
+                                            </div>
+                                })
+                            }
+                        </div>
+                    </div>
+        }
     }
 
     async function handleSubmit(e){
         e.preventDefault();
         setLoading(true);
         const formData = new FormData(e.target);
-        formData.append("type_of_visuals", "https://harmonic-web.vercel.app/survey.png");
 
         try{
             const response = await api.post("/surveyResponse", formData, {

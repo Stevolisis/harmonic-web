@@ -10,11 +10,11 @@ const surveyCompleted = () => {
         </div>
         <div>
             <p className='font-ArchivoMedium text-center'>
-                Your insights are helping us make HarmonicSLide a powerful tool for developers to showcase their work and share their journey with ease. We can’t wait to show you what’s coming next!
+                Your insights are helping us make HarmonicSlide a powerful tool for developers to showcase their work and share their journey with ease. We can’t wait to show you what’s coming next!
             </p>
         </div>
     </div>
   )
 }
 
-export default surveyCompleted
+export default surveyCompleted;
