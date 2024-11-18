@@ -274,7 +274,7 @@ export const InterestInFeatures = {
         {
             name: "helpfulness_of_auto_tracking",
             type: "radio",
-            question: "How helpful would it be to have SlideCode automatically track your GitHub commits or project updates and suggest content ideas?",
+            question: "How helpful would it be to have HarmonicSlide automatically track your GitHub commits or project updates and suggest content ideas?",
             options: [
                 "Very helpful",
                 "Somewhat helpful",
@@ -286,7 +286,7 @@ export const InterestInFeatures = {
         {
             name: "likelihood_of_use",
             type: "radio",
-            question: "How likely are you to use SlideCode if it significantly reduced the time needed to create LinkedIn posts?",
+            question: "How likely are you to use HarmonicSlide if it significantly reduced the time needed to create LinkedIn posts?",
             options: [
                 "Very likely",
                 "Somewhat likely",
@@ -298,7 +298,7 @@ export const InterestInFeatures = {
         {
             name: "valuable_features",
             type: "check",
-            question: "Which features would be most valuable to you in SlideCode?",
+            question: "Which features would be most valuable to you in HarmonicSlide?",
             options: [
                 "Access to ready-made, editable templates for code visuals",
                 "Customizable slide templates",
@@ -317,7 +317,7 @@ export const InterestInFeatures = {
         {
             name: "payment_amount",
             type: "radio",
-            question: "What is the maximum monthly amount you would consider paying for SlideCode’s full suite of tools (content tracking, reminders, customizable templates, and AI suggestions)?",
+            question: "What is the maximum monthly amount you would consider paying for HarmonicSlide’s full suite of tools (content tracking, reminders, customizable templates, and AI suggestions)?",
             options: [
                 "$0 (I would only use a free version)",
                 "$5-10",
@@ -353,12 +353,12 @@ export const Feedback = {
         {
             name: "automated_tool_help",
             type: "singleInput:textarea",
-            question: "Do you think an automated tool like SlideCode could help improve your workflow or showcase your work? If yes, how? If no, why not?",
+            question: "Do you think an automated tool like HarmonicSlide could help improve your workflow or showcase your work? If yes, how? If no, why not?",
         },
         {
             name: "beta_test_interest",
             type: "radio",
-            question: "Would you be interested in participating in a beta test for SlideCode when it's ready?",
+            question: "Would you be interested in participating in a beta test for HarmonicSlide when it's ready?",
             options: [
                 "Yes",
                 "No",
@@ -368,7 +368,7 @@ export const Feedback = {
         {
             name: "additional_feedback",
             type: "singleInputNotRequired:textarea",
-            question: "Any additional feedback or suggestions for the SlideCode project?",
+            question: "Any additional feedback or suggestions for the HarmonicSlide project?",
         }
     ]
 };
